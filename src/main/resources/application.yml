@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: QuartzDemo
@@ -6,12 +9,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/quartz?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true # MySQL Connector/J 8.X 连接的示例
+    url: jdbc:mysql://127.0.0.1:3306/quartz?serverTimezone=Asia/Shanghai
 
   quartz:
     job-store-type: jdbc
     jdbc:
-      initialize-schema: always
+      initialize-schema: embedded
     scheduler-name: testScheduler
 
 mybatis:

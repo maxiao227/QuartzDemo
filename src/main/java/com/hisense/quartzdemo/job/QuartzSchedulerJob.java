@@ -19,7 +19,9 @@ public class QuartzSchedulerJob extends QuartzJobBean {
                 System.out.println("定时任务机器人组工作：" + jobExecutionContext.getJobDetail().getKey().getName()
                         + " 当前时间：" + LocalDateTime.now());
                 break;
+            default:
+                System.out.println("定时任务工作：" + jobExecutionContext.getJobDetail().getKey().getName()
+                        + " 当前时间：" + LocalDateTime.now());
         }
-
     }
 }

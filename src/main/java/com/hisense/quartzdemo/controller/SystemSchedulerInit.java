@@ -14,7 +14,7 @@ public class SystemSchedulerInit implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        systemSchedulerService.addScheduler("小猪佩奇", "动物组", "0/5 * * * * ?");
-        systemSchedulerService.addScheduler("阿童木", "机器人组", "0/5 * * * * ?");
+//        systemSchedulerService.addScheduler("小猪佩奇", "动物组", "0/5 * * * * ?");
+//        systemSchedulerService.addScheduler("阿童木", "机器人组", "0/5 * * * * ?");
     }
 }

@@ -25,4 +25,14 @@ public class JobController {
     public boolean delete(@RequestParam String name, @RequestParam String group) {
         return systemSchedulerService.deleteScheduler(name, group);
     }
+
+    @PostMapping("/pause")
+    public boolean pause(@RequestParam String name, @RequestParam String group) {
+        return systemSchedulerService.puaseScheduler(name, group);
+    }
+
+    @PostMapping("/resume")
+    public boolean resume(@RequestParam String name, @RequestParam String group) {
+        return systemSchedulerService.resumeScheduler(name, group);
+    }
 }
