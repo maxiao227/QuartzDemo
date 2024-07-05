@@ -3,6 +3,7 @@ package com.hisense.quartzdemo.service;
 
 import com.hisense.quartzdemo.entity.JobConfiguration;
 import com.hisense.quartzdemo.mapper.JobConfigurationMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -12,11 +13,11 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
+@Slf4j
 public class JobConfigurationService {
 
     @Autowired
     private JobConfigurationMapper jobConfigurationMapper;
-
     @Autowired
     private Scheduler scheduler;
     @Autowired
@@ -38,7 +39,7 @@ public class JobConfigurationService {
                         .build();
                 scheduler.scheduleJob(jobDetail, trigger);
             } catch (SchedulerException e) {
-                e.printStackTrace();
+                log.error("Error scheduling job", e);
             }
         });
     }

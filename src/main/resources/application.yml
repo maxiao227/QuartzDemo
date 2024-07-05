@@ -3,20 +3,16 @@ spring:
     name: QuartzDemo
 
   datasource:
-    url: jdbc:mysql://localhost:3306/quartz?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/quartz?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true # MySQL Connector/J 8.X 连接的示例
 
   quartz:
-    properties:
-      org:
-        quartz:
-          scheduler:
-            instanceName: DynamicScheduler
-          threadPool:
-            threadCount: 10
-            threadPriority: 5
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    scheduler-name: testScheduler
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
